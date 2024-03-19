@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLKhachSanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblctdatphong">
+          <Key>
+            <PropertyRef Name="mapd" />
+          </Key>
+          <Property Name="mapd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblctthuephong">
+          <Key>
+            <PropertyRef Name="mapt" />
+          </Key>
+          <Property Name="mapt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngay" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="madv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="soluong" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'QLKhachSan.dbo.tblctvattu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblctvattu">
+          <Property Name="mavattu" Type="nvarchar" MaxLength="50" />
+          <Property Name="malp" Type="nvarchar" MaxLength="50" />
+          <Property Name="soluong" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="tbldichvu">
+          <Key>
+            <PropertyRef Name="madv" />
+          </Key>
+          <Property Name="madv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tendv" Type="nvarchar" MaxLength="50" />
+          <Property Name="gia" Type="nvarchar" MaxLength="50" />
+          <Property Name="donvitinh" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblhoadon">
+          <Key>
+            <PropertyRef Name="mahd" />
+          </Key>
+          <Property Name="mahd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngaythanhtoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="tongtien" Type="nvarchar" MaxLength="50" />
+          <Property Name="mapt" Type="nvarchar" MaxLength="50" />
+          <Property Name="makh" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblkhachhang">
+          <Key>
+            <PropertyRef Name="makh" />
+          </Key>
+          <Property Name="makh" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tenkh" Type="nvarchar" MaxLength="50" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaysinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="cmnd" Type="nvarchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+          <Property Name="ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblloaiphong">
+          <Key>
+            <PropertyRef Name="maloai" />
+          </Key>
+          <Property Name="maloai" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="songuoi" Type="nvarchar" MaxLength="50" />
+          <Property Name="gia" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblnhanvien">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tennv" Type="nvarchar" MaxLength="50" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaysinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="chucvu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblphieudatphong">
+          <Key>
+            <PropertyRef Name="mapd" />
+          </Key>
+          <Property Name="mapd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="makh" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngayden" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaydi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sotiendat" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="tinhtrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="songuoi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblphieuthuephong">
+          <Key>
+            <PropertyRef Name="mapt" />
+          </Key>
+          <Property Name="mapt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mapd" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblphong">
+          <Key>
+            <PropertyRef Name="maphong" />
+          </Key>
+          <Property Name="maphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maloai" Type="nvarchar" MaxLength="50" />
+          <Property Name="dadat" Type="nvarchar" MaxLength="50" />
+          <Property Name="danhan" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbltrangthaiphong">
+          <Key>
+            <PropertyRef Name="maphong" />
+          </Key>
+          <Property Name="maphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbluser">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="chucvu" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblvattu">
+          <Key>
+            <PropertyRef Name="mavattu" />
+          </Key>
+          <Property Name="mavattu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tenvattu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="QLKhachSanModelStoreContainer">
+          <EntitySet Name="tblctdatphong" EntityType="Self.tblctdatphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblctthuephong" EntityType="Self.tblctthuephong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbldichvu" EntityType="Self.tbldichvu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblhoadon" EntityType="Self.tblhoadon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblkhachhang" EntityType="Self.tblkhachhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblloaiphong" EntityType="Self.tblloaiphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblnhanvien" EntityType="Self.tblnhanvien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblphieudatphong" EntityType="Self.tblphieudatphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblphieuthuephong" EntityType="Self.tblphieuthuephong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblphong" EntityType="Self.tblphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbltrangthaiphong" EntityType="Self.tbltrangthaiphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbluser" EntityType="Self.tbluser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblvattu" EntityType="Self.tblvattu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLKhachSanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblctdatphong">
+          <Key>
+            <PropertyRef Name="mapd" />
+          </Key>
+          <Property Name="mapd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblctthuephong">
+          <Key>
+            <PropertyRef Name="mapt" />
+          </Key>
+          <Property Name="mapt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="madv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soluong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbldichvu">
+          <Key>
+            <PropertyRef Name="madv" />
+          </Key>
+          <Property Name="madv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tendv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="donvitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblhoadon">
+          <Key>
+            <PropertyRef Name="mahd" />
+          </Key>
+          <Property Name="mahd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaythanhtoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tongtien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mapt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="makh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblkhachhang">
+          <Key>
+            <PropertyRef Name="makh" />
+          </Key>
+          <Property Name="makh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tenkh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaysinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cmnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblloaiphong">
+          <Key>
+            <PropertyRef Name="maloai" />
+          </Key>
+          <Property Name="maloai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="songuoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblnhanvien">
+          <Key>
+            <PropertyRef Name="manv" />
+          </Key>
+          <Property Name="manv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tennv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaysinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblphieudatphong">
+          <Key>
+            <PropertyRef Name="mapd" />
+          </Key>
+          <Property Name="mapd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="makh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngayden" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaydi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sotiendat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tinhtrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="songuoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblphieuthuephong">
+          <Key>
+            <PropertyRef Name="mapt" />
+          </Key>
+          <Property Name="mapt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mapd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblphong">
+          <Key>
+            <PropertyRef Name="maphong" />
+          </Key>
+          <Property Name="maphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maloai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dadat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="danhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbltrangthaiphong">
+          <Key>
+            <PropertyRef Name="maphong" />
+          </Key>
+          <Property Name="maphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbluser">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblvattu">
+          <Key>
+            <PropertyRef Name="mavattu" />
+          </Key>
+          <Property Name="mavattu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tenvattu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="QLKhachSanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblctdatphongs" EntityType="Self.tblctdatphong" />
+          <EntitySet Name="tblctthuephongs" EntityType="Self.tblctthuephong" />
+          <EntitySet Name="tbldichvus" EntityType="Self.tbldichvu" />
+          <EntitySet Name="tblhoadons" EntityType="Self.tblhoadon" />
+          <EntitySet Name="tblkhachhangs" EntityType="Self.tblkhachhang" />
+          <EntitySet Name="tblloaiphongs" EntityType="Self.tblloaiphong" />
+          <EntitySet Name="tblnhanviens" EntityType="Self.tblnhanvien" />
+          <EntitySet Name="tblphieudatphongs" EntityType="Self.tblphieudatphong" />
+          <EntitySet Name="tblphieuthuephongs" EntityType="Self.tblphieuthuephong" />
+          <EntitySet Name="tblphongs" EntityType="Self.tblphong" />
+          <EntitySet Name="tbltrangthaiphongs" EntityType="Self.tbltrangthaiphong" />
+          <EntitySet Name="tblusers" EntityType="Self.tbluser" />
+          <EntitySet Name="tblvattus" EntityType="Self.tblvattu" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLKhachSanModelStoreContainer" CdmEntityContainer="QLKhachSanEntities">
+          <EntitySetMapping Name="tblctdatphongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblctdatphong">
+              <MappingFragment StoreEntitySet="tblctdatphong">
+                <ScalarProperty Name="mapd" ColumnName="mapd" />
+                <ScalarProperty Name="maphong" ColumnName="maphong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblctthuephongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblctthuephong">
+              <MappingFragment StoreEntitySet="tblctthuephong">
+                <ScalarProperty Name="mapt" ColumnName="mapt" />
+                <ScalarProperty Name="maphong" ColumnName="maphong" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="madv" ColumnName="madv" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbldichvus">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tbldichvu">
+              <MappingFragment StoreEntitySet="tbldichvu">
+                <ScalarProperty Name="madv" ColumnName="madv" />
+                <ScalarProperty Name="tendv" ColumnName="tendv" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+                <ScalarProperty Name="donvitinh" ColumnName="donvitinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblhoadons">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblhoadon">
+              <MappingFragment StoreEntitySet="tblhoadon">
+                <ScalarProperty Name="mahd" ColumnName="mahd" />
+                <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="mapt" ColumnName="mapt" />
+                <ScalarProperty Name="makh" ColumnName="makh" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblkhachhangs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblkhachhang">
+              <MappingFragment StoreEntitySet="tblkhachhang">
+                <ScalarProperty Name="makh" ColumnName="makh" />
+                <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="cmnd" ColumnName="cmnd" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblloaiphongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblloaiphong">
+              <MappingFragment StoreEntitySet="tblloaiphong">
+                <ScalarProperty Name="maloai" ColumnName="maloai" />
+                <ScalarProperty Name="songuoi" ColumnName="songuoi" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblnhanviens">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblnhanvien">
+              <MappingFragment StoreEntitySet="tblnhanvien">
+                <ScalarProperty Name="manv" ColumnName="manv" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblphieudatphongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblphieudatphong">
+              <MappingFragment StoreEntitySet="tblphieudatphong">
+                <ScalarProperty Name="mapd" ColumnName="mapd" />
+                <ScalarProperty Name="makh" ColumnName="makh" />
+                <ScalarProperty Name="ngayden" ColumnName="ngayden" />
+                <ScalarProperty Name="ngaydi" ColumnName="ngaydi" />
+                <ScalarProperty Name="sotiendat" ColumnName="sotiendat" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+                <ScalarProperty Name="songuoi" ColumnName="songuoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblphieuthuephongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblphieuthuephong">
+              <MappingFragment StoreEntitySet="tblphieuthuephong">
+                <ScalarProperty Name="mapt" ColumnName="mapt" />
+                <ScalarProperty Name="mapd" ColumnName="mapd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblphongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblphong">
+              <MappingFragment StoreEntitySet="tblphong">
+                <ScalarProperty Name="maphong" ColumnName="maphong" />
+                <ScalarProperty Name="maloai" ColumnName="maloai" />
+                <ScalarProperty Name="dadat" ColumnName="dadat" />
+                <ScalarProperty Name="danhan" ColumnName="danhan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltrangthaiphongs">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tbltrangthaiphong">
+              <MappingFragment StoreEntitySet="tbltrangthaiphong">
+                <ScalarProperty Name="maphong" ColumnName="maphong" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblusers">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tbluser">
+              <MappingFragment StoreEntitySet="tbluser">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblvattus">
+            <EntityTypeMapping TypeName="QLKhachSanModel.tblvattu">
+              <MappingFragment StoreEntitySet="tblvattu">
+                <ScalarProperty Name="mavattu" ColumnName="mavattu" />
+                <ScalarProperty Name="tenvattu" ColumnName="tenvattu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
